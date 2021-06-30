@@ -4,7 +4,7 @@
 
 @section('content_header')
     <div class="row justify-content-between">
-        <h1>Detalhes do Plano: <b> {{ $plan->name }} </b></h1>
+        <h1>Detalhes do Plano: </h1>
 
     </div>
 
@@ -32,7 +32,7 @@
                 <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i> Excluir</button>
               </form>
 
-              <a href="" class="btn w3-indigo"><i class="fas fa-pen"></i> EDITAR</a>
+              <a href="{{ route('plans.edit', $plan->url) }}" class="btn w3-indigo"><i class="fas fa-pen"></i> EDITAR</a>
               <a href="{{ route('plans.index') }}" class="btn w3-purple"><i class="fas fa-arrow-alt-circle-left"></i> VOLTAR</a>
 
             </div>

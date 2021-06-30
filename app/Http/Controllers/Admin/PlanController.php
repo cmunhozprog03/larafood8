@@ -3,8 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Plan;
-use Illuminate\Support\Str;
-use Illuminate\Http\Request;
+
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUpdatePlan;
 
@@ -45,9 +44,9 @@ class PlanController extends Controller
      */
     public function store(StoreUpdatePlan $request)
     {
-        $plan = $request->all();
-        $plan['url'] = Str::slug($request->name);
-        $this->repository->create($plan);
+        
+
+        $this->repository->create($request->all());
 
         return redirect()->route('plans.index');
     }
@@ -58,9 +57,9 @@ class PlanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($url)
     {
-        $plan = $this->repository->find($id);
+        $plan = $this->repository->where('url',$url)->first();
         return view('admin.pages.plans.show', compact('plan'));
     }
 
@@ -70,9 +69,12 @@ class PlanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($url)
     {
-        //
+        $plan = $this->repository->where('url',$url)->first();
+
+
+        return view('admin.pages.plans.edit', compact('plan'));
     }
 
     /**
@@ -82,9 +84,18 @@ class PlanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreUpdatePlan $request, $url)
     {
-        //
+        $plan = $this->repository->where('url',$url)->first();
+
+        if(!$plan)
+            return redirect()->back();
+
+        $plan->update($request->all());
+
+        return view('admin.pages.plans.index');
+
+
     }
 
     /**

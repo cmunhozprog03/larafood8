@@ -23,8 +23,9 @@ class StoreUpdatePlan extends FormRequest
      */
     public function rules()
     {
+        $url = $this->segment(3);
         return [
-            'name' => ['required', 'unique:plans'],
+            'name' => ['required', "unique:plans,name,{$url},url"],
             'price' => ['required'],
             'description' => ['nullable', 'min:3', 'max:500']
         ];

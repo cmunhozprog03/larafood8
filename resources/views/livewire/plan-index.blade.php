@@ -30,8 +30,8 @@
                         <td>{{ $plan->name }}</td>
                         <td class="text-right">R$ {{ number_format($plan->price, 2, ',', '.') }}</td>
                         <td class="text-center">
-                          <a href="" class="w3-button w3-small w3-round-large w3-indigo">Editar</a>
-                          <a href="{{ route('plans.show', $plan->id) }}" class="w3-button w3-small w3-border-indigo w3-round-large w3-deep-purple">Ver</a>
+                          <a href="{{ route('plans.edit', $plan->url) }}" class="w3-button w3-small w3-round-large w3-indigo">Editar</a>
+                          <a href="{{ route('plans.show', $plan->url) }}" class="w3-button w3-small w3-border-indigo w3-round-large w3-deep-purple">Ver</a>
                         </td>
                     </tr>
                 @endforeach
