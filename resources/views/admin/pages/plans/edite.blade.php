@@ -14,8 +14,9 @@
       <div class="col-md-8">
         <div class="card bg-dark">
           <div class="card-body">
-            <form action="{{ route('plans.store') }}" method="POST">
+            <form action="{{ route('plans.update', $plan->id) }}" method="POST">
               @csrf
+              @method('PUT')
 
               @include('admin.pages.plans._partials.form')
 
@@ -33,7 +34,7 @@
 @stop
 
 @section('css')
-    
+
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
 @stop
 

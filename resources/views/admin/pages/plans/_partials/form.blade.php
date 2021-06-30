@@ -17,7 +17,7 @@
     <div class="col-md-3">
       <div class="form-group">
         <label for="">Preço</label>
-        <input type="text" name="white" class="form-control bg-dark">
+        <input type="text" name="price" class="form-control bg-dark">
         @error('price')
             <small class="text-warning">{{ $message }}</small>
         @enderror

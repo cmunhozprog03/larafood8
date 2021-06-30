@@ -60,7 +60,8 @@ class PlanController extends Controller
      */
     public function show($id)
     {
-        //
+        $plan = $this->repository->find($id);
+        return view('admin.pages.plans.show', compact('plan'));
     }
 
     /**
@@ -94,6 +95,9 @@ class PlanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $plan = $this->repository->find($id);
+        $plan->delete();
+
+        return redirect()->route('plans.index');
     }
 }
