@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use App\Models\Plan;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreUpdatePlan;
 
 class PlanController extends Controller
 {
@@ -32,7 +34,7 @@ class PlanController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.pages.plans.create');
     }
 
     /**
@@ -41,9 +43,13 @@ class PlanController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreUpdatePlan $request)
     {
-        //
+        $plan = $request->all();
+        $plan['url'] = Str::slug($request->name);
+        $this->repository->create($plan);
+
+        return redirect()->route('plans.index');
     }
 
     /**
