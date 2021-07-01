@@ -1,15 +1,20 @@
 <?php
 
-use App\Http\Controllers\Admin\DetailPlanController;
-use App\Http\Controllers\Admin\PlanController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\{
+    DetailPlanController,
+    PlanController,
+    ProfileController
+};
 
+use Illuminate\Support\Facades\Route;
+use JeroenNoten\LaravelAdminLte\Components\Widget\ProfileColItem;
 
 Route::get('/', function () {
     return view('welcome');
 });
 Route::prefix('admin')->group(function(){
 
+    Route::resource('/profiles', ProfileController::class);
 
     Route::get('/plans/{url}/details', [DetailPlanController::class, 'index'])->name('details.plan.index');
     Route::get('/plans/{url}/details/create', [DetailPlanController::class, 'create'])->name('details.plan.create');

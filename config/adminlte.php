@@ -231,6 +231,7 @@ return [
             'text'         => 'search',
             'topnav_right' => true,
         ],
+
         [
             'type'         => 'fullscreen-widget',
             'topnav_right' => true,
@@ -241,7 +242,12 @@ return [
         [
             'text' => 'Planos',
             'url'  => 'admin/plans',
-            
+
+        ],
+        [
+            'text' => 'Perfis',
+            'url'  => 'admin/profiles',
+
         ],
         [
             'text'        => 'pages',

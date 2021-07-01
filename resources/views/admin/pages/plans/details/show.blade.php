@@ -31,6 +31,11 @@
               <a href="{{ route('details.plan.index', $plan->url) }}" class="btn w3-purple"><i class="fas fa-arrow-alt-circle-left"></i> VOLTAR</a>
 
             </div>
+            @if (session('error'))
+                <div class="alert-alert-danger">
+                    {{ session('error') }}
+                </div>
+            @endif
 
           </div>
 
