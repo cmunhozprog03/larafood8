@@ -74,6 +74,10 @@ class ProfileController extends Controller
     public function edit($id)
     {
         $profile = $this->repository->find($id);
+
+        if(!$profile)
+            return redirect()->back();
+
         return view('admin.pages.profiles.edit', compact('profile'));
     }
 
@@ -87,6 +91,10 @@ class ProfileController extends Controller
     public function update(StoreUpdateProfile $request, $id)
     {
         $profile = $this->repository->find($id);
+
+        if(!$profile)
+            return redirect()->back();
+            
         $profile->update($request->all());
 
         return redirect()->route('profiles.index');

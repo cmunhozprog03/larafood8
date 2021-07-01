@@ -1,7 +1,7 @@
 <div>
     <div class="row justify-content-between">
         <div class="col-md-3">
-            <h2>Pefis</h2>
+            <h2>Perfis</h2>
         </div>
         <div class="col-md-2">
             <a href="{{ route('profiles.create') }}" class="btn btn-dark mt-3">Novo Perfil</a>
