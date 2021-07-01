@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\{
     DetailPlanController,
+    PermissionController,
     PlanController,
     ProfileController
 };
@@ -13,6 +14,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::prefix('admin')->group(function(){
+
+    Route::resource('/permissions', PermissionController::class);
 
     Route::resource('/profiles', ProfileController::class);
 
