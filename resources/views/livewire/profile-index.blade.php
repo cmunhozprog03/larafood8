@@ -31,6 +31,7 @@
 
                           <a href="{{ route('profiles.edit', $profile->id) }}" class="w3-button w3-small w3-round-large w3-indigo">EDITAR</a>
                           <a href="{{ route('profiles.show', $profile->id) }}" class="w3-button w3-small w3-border-indigo w3-round-large w3-deep-purple">VER</a>
+                          <a href="{{ route('profiles.permissions', $profile->id) }}" class="w3-button w3-small w3-border-indigo w3-round-large w3-deep-purple">VER</a>
                         </td>
                     </tr>
                 @endforeach
