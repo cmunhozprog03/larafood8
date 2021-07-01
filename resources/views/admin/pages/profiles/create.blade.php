@@ -1,10 +1,10 @@
 @extends('adminlte::page')
 
-@section('title', 'Novo Plano')
+@section('title', 'Novo Perfil')
 
 @section('content_header')
     <div class="row justify-content-between">
-        <h1>Novo Plano</h1>
+        <h1>Novo Perfil</h1>
 
     </div>
 @stop
@@ -14,12 +14,12 @@
       <div class="col-md-8">
         <div class="card bg-dark">
           <div class="card-body">
-            <form action="{{ route('plans.store') }}" method="POST">
+            <form action="{{ route('profiles.store') }}" method="POST">
               @csrf
 
-              @include('admin.pages.plans._partials.form')
+              @include('admin.pages.profiles._partials.form')
 
-              <a href="{{ route('plans.index') }}" class="btn btn-secondary">Cancelar</a>
+              <a href="{{ route('profiles.index') }}" class="btn btn-secondary">Cancelar</a>
               <button type="submit" class="btn btn-success float-right font-weight-bold">Salvar</button>
 
 
