@@ -5,6 +5,7 @@
 @section('content_header')
 
     <h1>Detalhes do Plano: {{ $plan->name }}</h1>
+    <a href="{{ route('details.plan.create', $plan->url) }}" class="btn btn-dark">Novo Detalhe</a>
 
 @stop
 
@@ -24,13 +25,14 @@
             <tbody>
               @foreach ($details as $detail)
                   <tr>
+
                       <td>{{ $detail->id }}</td>
                       <td>{{ $detail->name }}</td>
 
                       <td class="text-center">
-                        <a href="{{ route('details.plan.index', $plan->url) }}" class="w3-button w3-small w3-round-large w3-indigo">Detalhes</a>
-                        <a href="{{ route('plans.edit', $plan->url) }}" class="w3-button w3-small w3-round-large w3-indigo">Editar</a>
-                        <a href="{{ route('plans.show', $plan->url) }}" class="w3-button w3-small w3-border-indigo w3-round-large w3-deep-purple">Ver</a>
+
+                        <a href="{{ route('details.plan.edit', [$plan->url, $detail->id]) }}" class="w3-button w3-small w3-round-large w3-indigo">Editar</a>
+                        <a href="{{ route('details.plan.show', [$plan->url, $detail->id]) }}" class="w3-button w3-small w3-border-indigo w3-round-large w3-deep-purple">Ver</a>
                       </td>
                   </tr>
               @endforeach

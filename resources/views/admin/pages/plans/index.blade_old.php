@@ -12,38 +12,7 @@
 @stop
 
 @section('content')
-    <div class="row justify-content-center">
-      <div class="table-responsive">
-        <table class="table table-striped table-hover table-dark">
-            <thead>
-              <tr class="text-center">
-                <th width="5%">ID</th>
-                <th width="50%">Nome</th>
-                <th width="20%">Valor</th>
-                <th colspan="2">Ações</th>
-              </tr>
-            </thead>
-            <tbody>
-              @foreach ($plans as $plan)
-                  <tr>
-                      <td>{{ $plan->id }}</td>
-                      <td>{{ $plan->name }}</td>
-                      <td class="text-right">R$ {{ number_format($plan->price, 2, ',', '.') }}</td>
-                      <td class="text-center">
-                        <a href="" class="w3-button w3-small w3-round-large w3-indigo">Editar</a>
-                        <a href="{{ route('plans.show', $plan->id) }}" class="w3-button w3-small w3-border-indigo w3-round-large w3-deep-purple">Ver</a>
-                      </td>
-                  </tr>
-              @endforeach
-            </tbody>
-        </table>
-        {{ $plans->links() }}
-      </div>
-    </div>
-
-
-
-    </div>
+ 
 
 @stop
 
