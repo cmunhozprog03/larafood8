@@ -250,6 +250,11 @@ return [
 
         ],
         [
+            'text' => 'Permissões',
+            'url'  => 'admin/permissions',
+
+        ],
+        [
             'text'        => 'pages',
             'url'         => 'admin/pages',
             'icon'        => 'far fa-fw fa-file',
