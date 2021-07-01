@@ -44,7 +44,7 @@ class PlanController extends Controller
      */
     public function store(StoreUpdatePlan $request)
     {
-        
+
 
         $this->repository->create($request->all());
 
